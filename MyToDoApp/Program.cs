@@ -32,6 +32,7 @@ void listActions(string input, out bool validInput)
             return;
         case "E":
             Console.WriteLine("Goodbye.");
+            validInput = true;
             return;
         default:
             Console.WriteLine("no man, no.");
@@ -100,7 +101,7 @@ void RemoveItem()
             {
                 string removingTODO = allTODOItems[itemId - 1];
 
-                Console.WriteLine("You are about to remove \"" + allTODOItems[itemId - 1] + "\", are you sure? (y/n)");
+                Console.WriteLine("You are about to remove \"" + removingTODO + "\", are you sure? (y/n)");
 
                 string yOrN = Console.ReadLine();
                 if (yOrN == "y")
