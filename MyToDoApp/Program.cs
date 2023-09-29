@@ -21,9 +21,11 @@ void listActions(string input, out bool validInput)
     {
         case "S":
             ShowAllTODOS();
+            Start();
             return;
         case "A":
             AddTODO();
+            Start();
             return;
         case "R":
             RemoveItem();
@@ -39,40 +41,88 @@ void listActions(string input, out bool validInput)
 }
 
 void ShowAllTODOS(){
-    for(int i = 0; i < allTODOItems.Count; i++)
+    if(allTODOItems.Count == 0)
     {
-        Console.WriteLine((i + 1) + ": " + allTODOItems[i]);
+        Console.WriteLine("No TODOs have been added yet.");
     }
-    Start();
+    else
+    {
+        for(int i = 0; i < allTODOItems.Count; i++)
+        {
+            Console.WriteLine((i + 1) + ": " + allTODOItems[i]);
+        }
+    }
 }
 
 void AddTODO()
 {
-    Console.WriteLine("What would you like to add?");
+    Console.WriteLine("Enter the TODO description");
 
     string newTODO = Console.ReadLine();
-    allTODOItems.Add(newTODO);
 
-    Console.WriteLine("Item added successfully");
-    Start();
+    if(newTODO.Length == 0)
+    {
+        Console.WriteLine("The description cannot be empty.");
+        Console.WriteLine("Enter the TODO description");
+    }
+    else
+    {
+        allTODOItems.Add(newTODO);
+        Console.WriteLine("TODO successfully added " + newTODO);
+        Start();
+    }
+
 }
 
 void RemoveItem()
 {
-    Console.WriteLine("Which item would you like to remove?");
-    int itemId = int.Parse(Console.ReadLine());
-
-    Console.WriteLine("You are about to remove " + allTODOItems[itemId - 1] + ", are you sure?");
-
-    string yOrN = Console.ReadLine();
-    if(yOrN == "y")
+    if(allTODOItems.Count == 0)
     {
-        allTODOItems.RemoveAt(itemId - 1);
+        ShowAllTODOS();
     }
     else
     {
-        Console.WriteLine("you nini...");
+        Console.WriteLine("Select the index of the TODO you want to remove:");
+        ShowAllTODOS();
+
+        string incomingIndex = Console.ReadLine();
+        int itemId = 0;
+        bool isValidInput = int.TryParse(incomingIndex, out itemId);
+        bool isValidIndex = (itemId <= allTODOItems.Count && itemId > 0);
+        if (isValidInput && isValidIndex)
+        {
+            if (incomingIndex == "")
+            {
+                Console.WriteLine("Selected index cannot be empty.");
+                RemoveItem();
+            }
+            else
+            {
+                string removingTODO = allTODOItems[itemId - 1];
+
+                Console.WriteLine("You are about to remove \"" + allTODOItems[itemId - 1] + "\", are you sure? (y/n)");
+
+                string yOrN = Console.ReadLine();
+                if (yOrN == "y")
+                {
+                    allTODOItems.RemoveAt(itemId - 1);
+                    Console.WriteLine("TODO removed: " + removingTODO);
+                }
+                else
+                {
+                    Console.WriteLine("nothing removed");
+                }
+            }
+        }
+        else
+        {
+            Console.WriteLine("The given index is not valid.");
+            RemoveItem();
+        }
+        
     }
+
+    Start();
 }
 
 void Start()
