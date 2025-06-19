@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercises", "Exercises\Exer
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyToDoApp", "MyToDoApp\MyToDoApp.csproj", "{F327586B-0757-4B80-B1C6-7494A1F357EA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiceRollGame", "DiceRollGame\DiceRollGame.csproj", "{5EA7C20F-46EA-4D31-AF66-A19969CACCBC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{F327586B-0757-4B80-B1C6-7494A1F357EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F327586B-0757-4B80-B1C6-7494A1F357EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F327586B-0757-4B80-B1C6-7494A1F357EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EA7C20F-46EA-4D31-AF66-A19969CACCBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EA7C20F-46EA-4D31-AF66-A19969CACCBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EA7C20F-46EA-4D31-AF66-A19969CACCBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EA7C20F-46EA-4D31-AF66-A19969CACCBC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
