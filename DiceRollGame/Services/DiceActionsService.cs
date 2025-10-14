@@ -9,7 +9,7 @@ public static class DiceActionsService
     public static void Roll(Dice dice)
     {
         Console.WriteLine("Rolling...");
-        var result = _random.Next(dice.MinValue, dice.MaxValue);
+        var result = _random.Next(dice.MinValue, dice.MaxValue + 1);
         dice.PreviousValue = dice.CurrentValue;
         dice.CurrentValue = result;
     }
