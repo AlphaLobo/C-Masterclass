@@ -10,7 +10,7 @@ public class Recipe
     {
         StringBuilder sb = new StringBuilder();
         foreach(var ingredient in Ingredients)
-            sb.Append($"{ingredient.Id}, ");
+            sb.Append($"{ingredient.Name}. {ingredient.Instructions}{Environment.NewLine}");
         
         return sb.ToString();
     }

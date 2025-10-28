@@ -6,7 +6,12 @@ public static class Serialization
 {
     public static T? DeserializeFromJson<T>()
     {
-        return JsonSerializer.Deserialize<T>((FileReader.ReadFromFile(FileType.Json)));
+        var json = FileReader.ReadFromFile(FileType.Json);
+        
+        if(json != null)
+            return JsonSerializer.Deserialize<T>(json);
+
+        return default;
     }
     
     public static T? DeserializeFromText<T>()

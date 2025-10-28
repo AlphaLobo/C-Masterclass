@@ -1,6 +1,6 @@
 namespace CookiesCookbook.Models.BaseClasses;
 
-public abstract class Ingredient
+public class Ingredient // come back to this. We don't want to allow instantiation here.
 {
     public virtual int Id { get; init; }
     public virtual string Name { get; init; } = "";
