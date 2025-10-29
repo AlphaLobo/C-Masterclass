@@ -2,7 +2,7 @@
 using CookiesCookbook.Models.Ingredients;
 using CookiesCookbook.Utilities;
 
-var fileType = FileType.Json;
+const FileType fileType = FileType.Json;
 
 //GenerateSomeRecipes.GenerateAndWriteToFile(fileType);
 
@@ -36,9 +36,6 @@ while (true)
         Console.WriteLine("Invalid input.");
     }
 }
-
-
-return;
 
 List<Recipe>? GetRecipes()
 {
