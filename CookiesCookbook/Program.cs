@@ -21,19 +21,21 @@ if (recipes != null)
 else
     Console.WriteLine("No recipes to display.");
 
-PrintAvailableIngredients();
-
 while (true)
 {
+    Console.WriteLine("Add an ingredient by its ID or type anything else if finished.");
+    PrintAvailableIngredients();
     var input = Console.ReadKey();
-    int validatedInput; 
-    if(InputValidator.ValidateInput(input.KeyChar.ToString(), GetIngredients(), out validatedInput))
+    if(InputValidator.ValidateInput(input.KeyChar.ToString(), out var validatedInput))
     {
-        Console.WriteLine($"You selected: {GetIngredients()[validatedInput]}");
+        if (InputValidator.IsRealElement(validatedInput, GetIngredients(), out var ingredient))
+        {
+            Console.WriteLine($"You selected: {GetIngredients()[validatedInput]}");
+        }
     }
     else
     {
-        Console.WriteLine("Invalid input.");
+        break;
     }
 }
 
