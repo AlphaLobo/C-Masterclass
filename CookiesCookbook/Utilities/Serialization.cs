@@ -6,7 +6,7 @@ public static class Serialization
 {
     public static T? DeserializeFromJson<T>()
     {
-        var json = FileReader.ReadFromFile(FileType.Json);
+        var json = FileHelper.ReadFromFile(FileType.Json);
         
         if(json != null)
             return JsonSerializer.Deserialize<T>(json);
@@ -21,7 +21,7 @@ public static class Serialization
 
     public static void SerializeJsonToFile<T>(T item)
     {
-        FileReader.WriteToFile(FileType.Json, JsonSerializer.Serialize(item));
+        FileHelper.WriteToFile(FileType.Json, JsonSerializer.Serialize(item));
     }
     
     public static void SerializeTxtToFile<T>(T item)

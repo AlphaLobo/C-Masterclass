@@ -2,7 +2,7 @@ using System.Text.Json.Nodes;
 
 namespace CookiesCookbook.Utilities;
 
-public static class FileReader
+public static class FileHelper
 {
     public static string? ReadFromFile(FileType fileType)
     {
