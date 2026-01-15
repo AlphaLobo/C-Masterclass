@@ -64,7 +64,7 @@ void ShowUserRecipes()
         foreach (var recipe in recipes)
         {
             n++;
-            Console.WriteLine($"***** {n} *****{recipe}{Environment.NewLine}");
+            Console.WriteLine($"***** {n} *****{Environment.NewLine}{recipe}{Environment.NewLine}");
         }
     }
     else
